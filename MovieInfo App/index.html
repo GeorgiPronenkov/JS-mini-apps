@@ -3,25 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>MovieInfo</title>
 </head>
 <body>
     <div class="container">
-        <h1>some title</h1>
+        <h1>Find all your favourites movies here</h1>
+        <img src="" alt="">
         <form>
             <div class="form-group">
                 <label for="inputValue">
-                    <input type="text" id="inputValue" placeholder="Search...">
+                    <input type="text" id="inputValue" placeholder="Movie title...">
                 </label>
             </div>
-            <button type="submit" id="search">Search for a movie</button>
+            <button type="submit"  class="btn btn-info">Search for a movie</button>
         </form>
-    </div>
-    <div class="movies-searchable">
 
+        <div id="movies-searchable"></div>
     </div>
-    <div class="movies-container">
 
+    <script src="assets/js/apiTransaction.js"></script> <!--before app.js!!!-->
     <script src="assets/js/app.js"></script>
+
 </body>
 </html>

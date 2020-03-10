@@ -1,20 +1,40 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    margin: 0 auto;
+}
+h1 {
+    text-align: center;
+    font-weight: bold;
+}
 
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 0;
+}
+
+label {
+    margin-bottom: 0;
 }
 
 #inputValue {
-    width: 760px;
+    border: 3px solid black;
+    width: 1000px;
     padding: .375rem .75rem;
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: bold;
     line-height: 1.5;
     outline: none;
     color: #777777;
     background-color: whitesmoke;
     /* background-clip: padding-box; */
-    border: 1px solid #3a526b;
     border-radius: .25rem;
+    margin-bottom: 0;
 }
 
 #search {
@@ -23,10 +43,71 @@
     font-size: 1rem;
     outline: none;
     min-height: 38px;
-    font-weight: 400;
+    font-weight: 700;
     text-align: center;
     cursor: pointer;
     padding: .375rem .75rem;
     line-height: 1.5;
     border-radius: .25rem;
+}
+
+#movies-searchable {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.movie {
+    margin-top: 50px;
+}
+
+section {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    align-items: center;
+    overflow-x: auto;
+    transition: 250ms all;
+}
+
+section img {
+    width: 250px;
+    transition: 250ms all;
+}
+
+img:hover {
+    margin-left: 0 40px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.content {
+    border: 5px solid cyan;
+    padding: 20px;
+    display: none;
+}
+
+.content div{
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.content-display {
+    display: block;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.content-display > p:nth-child(1) {
+    color: white;
+    cursor: pointer;
+}
+
+iframe {
+    border-color: whitesmoke;
+    border-radius: 10px;
 }
