@@ -26,6 +26,7 @@ $(function () {
 
        //data view
        function printData(data) {
+
            $('#phonebook').empty();
            for (let key in data) {
                if (data[key] != null) {
@@ -37,13 +38,13 @@ $(function () {
                            .append(`<a href="#" id="${key}">[DELETE]</a>`)
                            .click(deleteContact)
                        );
-
                }
            }
        }
-       function deleteContact() {
-            let id = $(this)[0].children[0].id;
 
+       function deleteContact() {
+
+            let id = $(this)[0].children[0].id;
             fetch(`${baseURL}/${id}.json`, {
                 method: "DELETE"
             })
@@ -52,6 +53,7 @@ $(function () {
    }
 
    function createContact() {
+
         let personName = $('#person').val();
         let personPhone = $('#phone').val();
 

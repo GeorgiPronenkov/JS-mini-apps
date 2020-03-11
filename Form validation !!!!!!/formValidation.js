@@ -12,7 +12,7 @@ function validate() {
 	let allIsValid = true;
 
 	//checkbox mark/unmark
-	companyCheckBox.on('change', function () {
+	companyCheckBox.on('change', function() {
 		if (companyCheckBox.is(':checked')) {
 		    companyInfo.css('display', 'block');
 		} else {
@@ -44,6 +44,7 @@ function validate() {
 
 	//regEx
 	function validateInputWithRegEx(input, pattern) {
+
 		if (pattern.test(input.val())) {
 		    input.css('border', 'none');
 		} else {
@@ -54,6 +55,7 @@ function validate() {
 
 	//validate company info
 	function validateCompanyInfo() {
+
 		let numValue = Number(companyNumber.val());
 		if (numValue >= 1000 && numValue <= 9999) {
 		    companyNumber.css('border', 'none');

@@ -43,6 +43,7 @@ function increment(selector) {
 		addBtn.text('Add');
 
 		addBtn.on('click', function () {
+
 			let li = $('<li>');
 			li.text($('.counter').val());
 			$('.results').append(li); //взема ul с class=results И добавя тек.li
@@ -56,6 +57,7 @@ function increment(selector) {
 
 	//append to parent
 	function appendElements(elements) {
+
 		elements.forEach((element) => {
 			parent.append(element);
 		})
