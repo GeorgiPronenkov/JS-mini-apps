@@ -17,13 +17,15 @@ class UI {
     this.itemID = 0;
   }
 
-  //submit budget method
+  //submit budget
   submitBudgetForm() {
+
      const value = this.budgetInput.value;
      if (value === '' || value < 0) {
          this.budgetFeedback.classList.add('showItem');
          this.budgetFeedback.innerHTML = `<p>value cannot be negative or empty</p>`;
          const self = this;
+
          setTimeout(function () {
             self.budgetFeedback.classList.remove('showItem')
          }, 3000)
@@ -36,6 +38,7 @@ class UI {
 
   //show balance
   showBalance() {
+
      const expense = this.totalExpense();
      const total = parseInt(this.budgetAmount.textContent) - expense;
      this.balanceAmount.textContent = total;
