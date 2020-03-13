@@ -12,6 +12,8 @@ const btns = document.querySelectorAll('.bag-btn');
 
 //cart
 let cart = [];
+//buttons
+let buttonsDOM = [];
 
 //class for getting the products
 class Products {
@@ -22,7 +24,7 @@ class Products {
 
         let products = data.items;
         products = products.map(item => {
-            const {title,price} = item.fields;
+            const {title, price} = item.fields;
             const {id} = item.sys;
             const image = item.fields.image.fields.file.url;
                 
@@ -59,7 +61,30 @@ class UI {
         });
         productsDOM.innerHTML = result;
     }
-}
+
+    getBagButtons() {
+        buttonsDOM = buttons;
+        const buttons = [...document.querySelectorAll('.bag-button')];
+        buttons.forEach(button =>  {
+            let id = button.dataset.id;
+            let inCart = cart.find(item => item.id === id);
+            if(inCart) {
+                button.innerText = "In Cart";
+                button.disabled = true;
+            }
+                button.addEventListener('click', (event) => {
+                    event.target.innerText = "In Cart";
+                    event.target.disabled = true;
+                    //get product from products
+                    //add product to cart
+                    //save cart in local storage
+                    //set cart values
+                    //display cart item
+                    //show the cart
+                });
+        });
+    };
+};
 
 //local storage class
 class Storage {
@@ -79,5 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(products => {
         ui.displayProducts(products)
         Storage.saveProducts(products);  
-    }).then();
+    }).then(() => {
+        ui.getBagButtons();
+    });
 });

@@ -1,6 +1,6 @@
 {
     "workbench.colorCustomizations": {
-        "editor.background": "#081530",
+        "editor.background": "#060f24",
         "sideBarSectionHeader.background": "#000000",
         "sideBarSectionHeader.foreground": "#1000f3",
         "list.inactiveSelectionBackground": "#565e85",
@@ -18,6 +18,6 @@
         "scrollbarSlider.hoverBackground": "#13f3d5",
         "editorOverviewRuler.wordHighlightForeground": "#f80909",
         "peekViewEditor.background": "#f01616",
-        "editorCursor.foreground": "#4d0c5e"
+        "editorCursor.foreground": "#00f7ff"
     }
 }
