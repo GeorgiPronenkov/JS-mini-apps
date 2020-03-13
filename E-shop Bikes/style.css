@@ -65,7 +65,7 @@ img {
   /* --------------- Hero ---------------- */
 .hero {
     min-height: calc(100vh - 60px);
-    background: url("./images/nature-bicycle-mountain-bikes-man-wallpaper.jpg") center/cover no-repeat;
+    background: url("./images/front-wallpaper.jpg") center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;

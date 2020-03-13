@@ -18,6 +18,6 @@
         "scrollbarSlider.hoverBackground": "#13f3d5",
         "editorOverviewRuler.wordHighlightForeground": "#f80909",
         "peekViewEditor.background": "#f01616",
-        "editorCursor.foreground": "#00ffdd"
+        "editorCursor.foreground": "#4d0c5e"
     }
 }
