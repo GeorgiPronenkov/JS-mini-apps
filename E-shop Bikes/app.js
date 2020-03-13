@@ -82,6 +82,7 @@ class UI {
                     //display cart item
                     //show the cart
                 });
+             
         });
     };
 };
