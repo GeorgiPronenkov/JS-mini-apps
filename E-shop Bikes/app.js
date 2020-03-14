@@ -1,7 +1,7 @@
 //set variables:
 const cartBtn = document.querySelector('.cart-btn');
 const closeCartBtn = document.querySelector('.close-cart');
-const clearCartbtn = document.querySelector('.clear-cart');
+const clearCartBtn = document.querySelector('.clear-cart');
 const cartDOM = document.querySelector('.cart');
 const cartOverlay = document.querySelector('.cart-overlay');
 const cartItems = document.querySelector('.cart-items');
@@ -153,7 +153,7 @@ class UI {
 
     cartLogic() {
         //clear cart
-        clearCartbtn.addEventListener('click', () => {
+        clearCartBtn.addEventListener('click', () => {
            this.clearCart();
         });
 
