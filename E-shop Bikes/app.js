@@ -39,7 +39,7 @@ class Products {
     }
 }
 
-//UI  class - display products
+//UI  class  - display products
 class UI {
     displayProducts(products) {
         let result = '';
