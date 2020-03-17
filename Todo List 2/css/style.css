@@ -1,0 +1,113 @@
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box; 
+}
+
+body {
+      height: 100%;
+      background-color: black;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 50;
+    margin: 1rem 0 3rem;
+    text-align: center;
+    color: rgb(252, 247, 247);
+}
+
+.styling {
+    font-weight: 800;
+    color: rgb(0, 255, 255);
+}
+
+.input_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input_div .input {
+    padding: 0.5rem 1rem;
+    height: 50px;
+    outline: none;
+    background-color: rgb(236, 236, 236);
+    width: 450px;
+    font-size: 1.15rem;
+    margin: 0.25rem;
+    border: none;
+    border-radius: 25px;
+}
+
+.fa {
+    font-size: 30px;
+}
+
+.addButton {
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background-color: rgb(97, 94, 94);
+    color: rgb(0, 255, 242);
+    margin: 0.25px;
+    cursor: pointer;
+}
+
+.addButton:hover {
+    opacity: 0.9;
+    height: 55px;
+    width: 55px;
+    border: 1px solid white;
+    background-color: rgb(97, 94, 94);
+    color: rgb(0, 255, 242);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.item {
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 4px solid rgb(0, 255, 242);
+}
+
+.item_input {
+    background: none;
+    outline: none;
+    color: white;
+    border: none;
+    width: 350px;
+    font-size: 1.4rem;
+}
+
+.editButton {
+    font-size: 1.4rem;
+    margin: 0 0.75rem;
+    font-family: 'Hind', sans-serif;
+    background: none;
+    outline: none;
+    color:  rgb(32, 192, 0);
+    border: none;
+    cursor: pointer;
+}
+
+.removeButton {
+    font-size: 1.4rem;
+    margin: 0 0.75rem;
+    font-family: 'Hind', sans-serif;
+    background: none;
+    outline: none;
+    color: rgb(255, 0, 0);
+    border: none;
+    cursor: pointer;
+    font-family: 'Hind', sans-serif;
+}
