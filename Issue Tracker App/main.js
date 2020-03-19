@@ -2,9 +2,36 @@ document.getElementById('issueInputForm')
         .addEventListener('submit', saveIssue);
 
 function saveIssue(e) {
-    const issueDesc = document.getElementById('issueDescInput').value; 
-    const issuesList = document.getElementById('issueSeverityInput').value;
-    const issueAssignedTo = document.getElementById('issueAssignedToInput') 
+    const issueDesc = document.getElementById('issueDescInput').value;  
+    const issueSeverity = document.getElementById('issueSeverityInput').value;
+    const issueAssignedTo = document.getElementById('issueAssignedToInput');
+    const issueId = chance.guid();
+    const issueStatus = 'Open';
+    
+    //issue object
+    const issue = {
+        id: issueId,
+        description: issueDesc,
+        severity: issueSeverity,
+        assignedTo: issueAssignedTo,
+        status: issueStatus
+    }
+
+    if (localStorage.getItem('issues') == null) {
+        const issues = [];
+        issues.push(issue);
+        localStorage.setItem('issues', JSON.stringify(issues));
+    } else {
+        const issues = JSON.parse(localStorage.getItem('issues'));
+        issues.push(issue);
+        localStorage.setItem('issues', JSON.stringify(issues));
+    }
+
+    document.getElementById('issueInputForm').reset();
+
+    fetchIssues(); //call because the are new element
+    
+    e.preventDefault();
 }
 
 function fetchIssues() {
