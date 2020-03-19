@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Tracker</title>
+    <!-- bootsrap 4.0 -->
+    <link rel="stylesheet" 
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+          crossorigin="anonymous">
+</head>
+<body onload="fetchIssues()">
+    <div class="container">
+        <h1>JS ISsueTracker <small>by GNP</small></h1>
+        <div class="jumbotron">
+            <h3>Add New Issue:</h3>
+            <form id="issueInputForm">
+                <div class="form-group">
+                    <label for="issueDescInput">Description</label>
+                    <input type="text" 
+                       class="form-control" 
+                       id="issueDescInput" 
+                       placeholder="Desribe the issue...">
+                </div>
+                <div class="form-group">
+                    <label for="issueSeverityInput">Severity</label>
+                    <select id="issueSeverityInput" class="form-control">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="issueAssignedToInput">Assigned To</label>
+                    <input type="text" 
+                       class="form-control" 
+                       id="issueAssignedToInput" 
+                       placeholder="Enter responsible...">
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+        <div class="col-lg-12">
+            <div class="issuesList"></div>
+        </div>   
+        <div class="footer">
+            <p>&copy GNP 2020</p>
+        </div> 
+    </div>
+
+
+    <!-- chance.js -->
+    <script src="https://chancejs.com/chance.min.js"></script>
+    <!-- jquery min.js -->
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+    <!-- bootsrap js -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+            crossorigin="anonymous">
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
