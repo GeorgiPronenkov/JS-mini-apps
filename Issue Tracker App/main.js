@@ -34,14 +34,29 @@ function saveIssue(e) {
     e.preventDefault();
 }
 
+//close
 function setStatusClosed(id) {
     const issues = JSON.parse(localStorage.getItem('issues'));
     for (let i = 0; i < issues.length; i++) {
         if (issues[i].id == id) {
             issues[i].status = 'Closed';
         }
-        
     }
+
+    localStorage.setItem('issues', JSON.stringify(issues)); //convert array to JSON format
+    fetchIssues(); //update the list output
+}
+
+function deleteIssue(id) {
+    const issues = JSON.parse(localStorage.getItem('issues')); //retrieve from local storage
+    for (let i = 0; i < issues.length; i++) {
+        if (issues[i].id == id) {
+            issues.splice(i, 1);
+        }
+    }
+
+    localStorage.setItem('issues', JSON.stringify(issues)); //convert array to JSON format
+    fetchIssues();
 }
 
 //fetch the list of issues from local storage
@@ -67,7 +82,7 @@ function fetchIssues() {
                                 '<p><span class="glyphicon glyphicon-time"></span>' + severity + '</p>'+
                                 '<p><span class="glyphicon glyphicon-user"></span>' + assignedTo + '</p>'+
                                 '<a href="#" onclick="setStatusClosed(\''+id+'\')" class="btn btn-warning">Close</a>'+ 
-                                '<a href="#" onclick="deleteIsssue(\''+id+'\')" class="btn btn-danger">Delete</a>'+
+                                '<a href="#" onclick="deleteIssue(\''+id+'\')" class="btn btn-danger">Delete</a>'+
                                 '</div>';
         const issueDesc = document.getElementById('issueDescInput').value; 
     }
