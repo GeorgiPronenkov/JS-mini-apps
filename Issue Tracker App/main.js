@@ -1,14 +1,13 @@
-document.getElementById('issueInputForm')
-        .addEventListener('submit', saveIssue);
+document.getElementById('issueInputForm').addEventListener('submit', saveIssue);
 
+//implement saveIsssue
 function saveIssue(e) {
-    const issueDesc = document.getElementById('issueDescInput').value;  
+    const issueDesc = document.getElementById('issueDescInput').value;
     const issueSeverity = document.getElementById('issueSeverityInput').value;
-    const issueAssignedTo = document.getElementById('issueAssignedToInput');
+    const issueAssignedTo = document.getElementById('issueAssignedToInput').value;
     const issueId = chance.guid();
     const issueStatus = 'Open';
-    
-    //issue object
+
     const issue = {
         id: issueId,
         description: issueDesc,
@@ -20,42 +19,59 @@ function saveIssue(e) {
     if (localStorage.getItem('issues') == null) {
         const issues = [];
         issues.push(issue);
-        localStorage.setItem('issues', JSON.stringify(issues));
+        localStorage.setItem('isssues', JSON.stringify(issues));
     } else {
         const issues = JSON.parse(localStorage.getItem('issues'));
         issues.push(issue);
         localStorage.setItem('issues', JSON.stringify(issues));
     }
 
+    //reset input elements
     document.getElementById('issueInputForm').reset();
 
-    fetchIssues(); //call because the are new element
-    
+    fetchIssues();
+
     e.preventDefault();
 }
 
-function fetchIssues() {
-    const issues = JSON.parse(localStorage.getItem(íssues));
-    const issuesList = document.getElementById('issuesList');
-
-    issuesList.innerHTML = '';
-
-    for (let index = 0; index < issues.length; index++) {
-        const id = issues[index].id;
-        const desc = issues[index].description;
-        const severity = issues[index].severity;
-        const assignedTo = issues[index].assignedTo;
-        const status = issues[index].status;
-
-        issuesList.innerHTML += '<div class="well">' + 
-                                '<h6>Issue ID: ' + id + '</h6>' + 
-                                '<p><span class="label label-info">' + status + '</span></p>' +
-                                '<h3>' + desc + '</h3>' +
-                                '<p><span class="glyphicon glyphicon-time"></span>' + severity + '</p>' +
-                                '<p><span class="glyphicon glyphicon-user"></span>' + assignedTo + '</p>' +
-                                '<a href="#" onclick="setStatusClosed(\''+id+'\')" class="btn btn-warning">Close</a>' + 
-                                '<a href="#" onclick="deleteIsssue(\''+id+'\')" class="btn btn-danger">Delete</a>' +
-                                '</div>';
+function setStatusClosed(id) {
+    const issues = JSON.parse(localStorage.getItem('issues'));
+    for (let i = 0; i < issues.length; i++) {
+        if (issues[i].id == id) {
+            issues[i].status = 'Closed';
+        }
         
     }
 }
+
+//fetch the list of issues from local storage
+function fetchIssues() {
+    const issues = JSON.parse(localStorage.getItem('issues'));
+    const issuesList = document.getElementById('issuesList');
+
+    //initialize the content
+    issuesList.innerHTML = '';
+    //loop over issue items in issues object
+    for (let i = 0; i < issues.length; i++) {
+        const id = issues[i].id;
+        const description = issues[i].description;
+        const severity = issues[i].severity;
+        const assignedTo = issues[i].assignedTo;
+        const status = issues[i].status;
+
+        //generate html output
+          issuesList.innerHTML += '<div class="well">'+ 
+                                '<h6>Issue ID: ' + id + '</h6>'+ 
+                                '<p><span class="label label-info">' + status + '</span></p>'+
+                                '<h3>' + description + '</h3>' +
+                                '<p><span class="glyphicon glyphicon-time"></span>' + severity + '</p>'+
+                                '<p><span class="glyphicon glyphicon-user"></span>' + assignedTo + '</p>'+
+                                '<a href="#" onclick="setStatusClosed(\''+id+'\')" class="btn btn-warning">Close</a>'+ 
+                                '<a href="#" onclick="deleteIsssue(\''+id+'\')" class="btn btn-danger">Delete</a>'+
+                                '</div>';
+        const issueDesc = document.getElementById('issueDescInput').value; 
+    }
+}
+
+      
+    
