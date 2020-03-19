@@ -92,6 +92,3 @@ function fetchIssues() {
         const issueDesc = document.getElementById('issueDescInput').value; 
     }
 }
-
-      
-    
