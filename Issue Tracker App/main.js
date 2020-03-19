@@ -1,4 +1,5 @@
-document.getElementById('issueInputForm').addEventListener('submit', saveIssue);
+document.getElementById('issueInputForm')
+        .addEventListener('submit', saveIssue);
 
 //implement saveIsssue
 function saveIssue(e) {
@@ -27,14 +28,15 @@ function saveIssue(e) {
     }
 
     //reset input elements
-    document.getElementById('issueInputForm').reset();
+    document.getElementById('issueInputForm')
+            .reset();
 
     fetchIssues();
 
     e.preventDefault();
 }
 
-//close
+//close status issue
 function setStatusClosed(id) {
     const issues = JSON.parse(localStorage.getItem('issues'));
     for (let i = 0; i < issues.length; i++) {
@@ -47,6 +49,7 @@ function setStatusClosed(id) {
     fetchIssues(); //update the list output
 }
 
+//delete issue
 function deleteIssue(id) {
     const issues = JSON.parse(localStorage.getItem('issues')); //retrieve from local storage
     for (let i = 0; i < issues.length; i++) {
@@ -75,7 +78,8 @@ function fetchIssues() {
         const status = issues[i].status;
 
         //generate html output
-          issuesList.innerHTML += '<div class="well">'+ 
+          issuesList.innerHTML += 
+                            '<div class="well">'+ 
                                 '<h6>Issue ID: ' + id + '</h6>'+ 
                                 '<p><span class="label label-info">' + status + '</span></p>'+
                                 '<h3>' + description + '</h3>' +
@@ -83,7 +87,8 @@ function fetchIssues() {
                                 '<p><span class="glyphicon glyphicon-user"></span>' + assignedTo + '</p>'+
                                 '<a href="#" onclick="setStatusClosed(\''+id+'\')" class="btn btn-warning">Close</a>'+ 
                                 '<a href="#" onclick="deleteIssue(\''+id+'\')" class="btn btn-danger">Delete</a>'+
-                                '</div>';
+                            '</div>';
+
         const issueDesc = document.getElementById('issueDescInput').value; 
     }
 }
