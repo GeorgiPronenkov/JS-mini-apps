@@ -2,73 +2,8 @@
 document.getElementById('myForm')
         .addEventListener('submit', saveBookmark);
 
-//save Bookmark
-function saveBookmark(event) {
-
-    //get form values
-    const siteName = document.getElementById('siteName').value;
-    const siteUrl = document.getElementById('siteUrl').value;
-
-    if (!validateForm(siteName, siteUrl)) {
-        return false;
-    }
-
-    //create object for local storage
-    const bookmark = {
-        name: siteName,
-        url: siteUrl
-    };
-
-    //check if bookmarks is null
-    if (localStorage.getItem('bookmarks') === null) {
-        //initialize array
-        const bookmarks = [];
-        bookmarks.push(bookmark);
-        //set to local storage
-        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-    } else {
-        //get bookmarks from localstorage
-        const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
-        //add bookmark to array
-        bookmarks.push(bookmark);
-        //re-set back to local storage
-        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-    }
-
-    //clear form
-    document.getElementById('myForm').reset();
-
-    //re-fetch bookmarks
-    fetchBookmarks();
-
-    event.preventDefault(); //prevent from submitted
-}
-
-//delete Bookmark
-function deleteBookmark(url) {
-
-    const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
-    //loop through bookmarks
-    for (let i = 0; i < bookmarks.length; i++) {
-        if (bookmarks[i].url === url) {
-            //remove from array
-            bookmarks.splice(i, 1);
-        }
-    }
-
-    //reset local storage after delete
-    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-
-    //clear form
-    document.getElementById('myForm').reset();
-
-    //re-fetch bookmarks
-    fetchBookmarks();
-}
-
 //Fetch bookmarks
 function fetchBookmarks() {
-
     //get bookmarks from localstorage
     const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
 
@@ -92,9 +27,73 @@ function fetchBookmarks() {
     }
 }
 
-//validate form
-function validateForm(siteName, siteUrl) {
+//save Bookmark
+function saveBookmark(e) {
+    //get form values
+    const siteName = document.getElementById('siteName').value;
+    const siteUrl = document.getElementById('siteUrl').value;
 
+    if (!validateForm(siteName, siteUrl)) {
+        return false;
+    }
+
+    //create object for submit in local storage
+    const bookmark = {
+        name: siteName,
+        url: siteUrl
+    };
+
+    //check if bookmarks is null
+    if (localStorage.getItem('bookmarks') === null) {
+        //initialize array
+        const bookmarks = [];
+        bookmarks.push(bookmark);
+        //SET to local storage
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    } else {
+        //GET bookmarks from localstorage
+        const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+        //add bookmark to array
+        bookmarks.push(bookmark);
+        //re-set back to local storage
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    }
+
+    //clear form after submitted
+    document.getElementById('myForm')
+            .reset();
+
+    //re-fetch bookmarks
+    fetchBookmarks();
+
+    //prevent from submitted
+    e.preventDefault(); 
+}
+
+//delete Bookmark
+function deleteBookmark(url) {
+    //get bookmarks from local storage:
+    const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    //loop through bookmarks
+    for (let i = 0; i < bookmarks.length; i++) {
+        if (bookmarks[i].url === url) {
+            //remove from array
+            bookmarks.splice(i, 1);
+        }
+    }
+
+    //reset local storage after delete
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+
+    //clear form
+    document.getElementById('myForm').reset();
+
+    //re-fetch bookmarks
+    fetchBookmarks();
+}
+
+//validate form. Check if sitename and URL are valid
+function validateForm(siteName, siteUrl) {
     if (!siteName || !siteUrl) {
         alert('Please fill in the form!');
         return false;
@@ -109,5 +108,6 @@ function validateForm(siteName, siteUrl) {
         return false;
     }
 
+    //if passes:
     return true;
 }
