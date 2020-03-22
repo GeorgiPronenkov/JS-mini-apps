@@ -222,7 +222,6 @@ ul.todo {
     fill: #25b99a;
   }
   
-  
   ul.todo#completed {
     position: relative;
     padding: 60px 0 0 0;
@@ -230,9 +229,9 @@ ul.todo {
   
   ul.todo#completed:before {
     content: '';
-    width: 200px;
-    height: 3px;
-    background: grey;
+    width: 150px;
+    height: 1px;
+    background: #d8e5e0;
   
     position: absolute;
     top: 30px;
@@ -240,25 +239,7 @@ ul.todo {
   
     margin: 0 0 0 -75px;
   }
-
-ul.todo#todo:empty:after {
-  content: 'no-todo';
-  margin: 15px 0 0 0;
-}  
-
-ul.todo#completed:empty:after {
-  content: 'have yet to complete';
-}
-
-ul.todo#completed:after,
-ul.todo#todo:after {
-  width: 100%;
-  display: block;
-  text-align: center;
-  font-size: 12px;
-  color: #aaa;
-}
-
+  
   ul.todo#todo:empty:after {
     content: 'You have nothing to-do!';
     margin: 15px 0 0 0;
