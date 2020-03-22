@@ -9,7 +9,6 @@ function generateUrl(path) {
 }
 
 function requestMovies(url, onComplete, onError) {
-
     fetch(url)
         .then((res) => res.json())
         .then(onComplete)
@@ -17,36 +16,33 @@ function requestMovies(url, onComplete, onError) {
 }
 
 function searchMovie(value) {
-
     const path = '/search/movie';
     const url = generateUrl(path) + '&query=' + value;
+    
     requestMovies(url, renderSearchMovies, handleError);
 }
 
 //upcoming movies
 function getUpcomingMovies() {
-
     const path = '/movie/upcoming';
     const url = generateUrl(path);
-
     const render = renderMovies.bind({ title: 'Upcoming Movies' }); //enable this.title
+
     requestMovies(url, render, handleError);
 }
 
 function getTopRatedMovies() {
-
     const path = '/movie/top_rated';
     const url = generateUrl(path);
-
     const render = renderMovies.bind({ title: 'Top Rated Movies' });
+
     requestMovies(url, render, handleError);
 }
 
 function getPopularMovies() {
-
     const path = '/movie/popular';
     const url = generateUrl(path);
-
     const render = renderMovies.bind({ title: 'Popular Movies' });
+
     requestMovies(url, render, handleError);
 }

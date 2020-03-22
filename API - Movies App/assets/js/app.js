@@ -2,14 +2,45 @@ const inputElement = document.querySelector('#inputValue');
 const buttonElement = document.getElementsByTagName('button');
 const movieSearchable = document.querySelector('#movies-searchable');
 
-
 //handle error
 function handleError(error) {
     console.log('Error: ', error);
 }
 
-function movieSection(movies) {
+buttonElement.onclick = function(e) {
+    //prevent refresh page
+    e.preventDefault();
+    const value = inputElement.value; //getting input value
 
+    searchMovie(value);
+
+   inputElement.value = ''; //clear input field
+};
+
+function createMovieContainer(movies, title='') {
+    const movieElement = document.createElement('div');
+    movieElement.setAttribute('class', 'movie');
+
+    const header = document.createElement('h2');
+    header.innerHTML = title;
+
+    const content = document.createElement('div');
+    content.classList = 'content';
+
+    const contentClose = `<p id="content-close" class="btn btn-danger">Close X</p>`;
+
+    content.innerHTML = contentClose;
+
+    const section = movieSection(movies);
+
+    movieElement.appendChild(header);
+    movieElement.appendChild(section);
+    movieElement.appendChild(content);
+    
+    return movieElement;
+}
+
+function movieSection(movies) {
      const section = document.createElement('section');
      section.classList = 'section';
 
@@ -17,8 +48,8 @@ function movieSection(movies) {
          if (movie.poster_path) {
              const img = document.createElement('img');
              img.src = IMAGE_URL + movie.poster_path;
-             img.setAttribute('data-movie-id', movie.id);
 
+             img.setAttribute('data-movie-id', movie.id);
              section.appendChild(img);
          }
      });
@@ -26,60 +57,23 @@ function movieSection(movies) {
      return section;
 }
 
-function createMovieContainer(movies, title='') {
-
-     const movieElement = document.createElement('div');
-     movieElement.setAttribute('class', 'movie');
-
-     const header = document.createElement('h2');
-     header.innerHTML = title;
-
-     const content = document.createElement('div');
-     content.classList = 'content';
-
-     const contentClose = `<p id="content-close" class="btn btn-danger">Close X</p>`;
-
-     content.innerHTML = contentClose;
-
-     const section = movieSection(movies);
-
-     movieElement.appendChild(header);
-     movieElement.appendChild(section);
-     movieElement.appendChild(content);
-     return movieElement;
-}
-
 function renderSearchMovies(data) {
-
     //data.results[]- array of every single movie
     movieSearchable.innerHTML = ''; //clear
     const movies = data.results;  //get the movies
     const movieBlock = createMovieContainer(movies);
     movieSearchable.appendChild(movieBlock);
-    console.log('Data:', data);
 }
 
 function renderMovies(data) {
-
     const movies = data.results;  //get the movies
     const movieBlock = createMovieContainer(movies, this.title);
     movieSearchable.appendChild(movieBlock);
 }
 
-buttonElement.onclick = function(event) {
-
-     //prevent refresh page
-     event.preventDefault();
-     const value = inputElement.value;
-     searchMovie(value);
-
-    inputElement.value = ''; //clear input field
-    console.log('value: ', value);
-};
 
 //video frame
 function createIframe(video) {
-
     const iframe = document.createElement('iframe');
     iframe.src = `https://youtube.com/embed/${video.key}`;
     iframe.width = 360;
@@ -90,7 +84,6 @@ function createIframe(video) {
 }
 
 function createVideoTemplate(data, content) {
-
     //display movie videos
     content.innerHTML = '<p id="content-close" class="btn btn-danger">Close X</p>';
     const videos = data.results;
@@ -105,11 +98,10 @@ function createVideoTemplate(data, content) {
     } 
 }
 
+//event delegation
 document.onclick = function(event) {
-
-    const target = event.target; //where ever click
-
-    //click on image events
+    const target = event.target; //wherever click
+    //if click on image tag
     if (target.tagName.toLowerCase() === 'img') {
         const movieId = target.dataset.movieId; //get moviedId from json data
         const section = event.target.parentElement; //section
@@ -118,6 +110,7 @@ document.onclick = function(event) {
 
         const path = `/movie/${movieId}/videos`;
         const url = generateUrl(path);
+
         //fetch movie videos
         fetch(url)  //pass the const url
             .then((res) => res.json())
