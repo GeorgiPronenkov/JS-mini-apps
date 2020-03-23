@@ -126,7 +126,7 @@ document.onclick = function(event) {
     }
 }
 
-searchMovie('Tron')
+searchMovie(default_movie_show)
 
 getUpcomingMovies();
 

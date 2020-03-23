@@ -1,6 +1,6 @@
 class UI {
-
-  constructor() {
+  //all intances  
+  constructor() { //run every time we initiate the class
     this.budgetFeedback = document.querySelector(".budget-feedback");
     this.expenseFeedback = document.querySelector(".expense-feedback");
     this.budgetForm = document.getElementById("budget-form");
@@ -17,28 +17,29 @@ class UI {
     this.itemID = 0;
   }
 
-  //submit budget
+  //submit budget:
   submitBudgetForm() {
-
      const value = this.budgetInput.value;
      if (value === '' || value < 0) {
+         //access to feedback
          this.budgetFeedback.classList.add('showItem');
          this.budgetFeedback.innerHTML = `<p>value cannot be negative or empty</p>`;
          const self = this;
-
+         
+         //hide alert message:
          setTimeout(function () {
             self.budgetFeedback.classList.remove('showItem')
-         }, 3000)
+         }, 3000);
      } else {
          this.budgetAmount.textContent = value;
          this.budgetInput.value = '';
+         
          this.showBalance();
      }
   }
 
-  //show balance
+  //show balance:
   showBalance() {
-
      const expense = this.totalExpense();
      const total = parseInt(this.budgetAmount.textContent) - expense;
      this.balanceAmount.textContent = total;
@@ -66,7 +67,7 @@ class UI {
           this.expenseFeedback.innerHTML = `<p>Values can not be negative or empty!</p>`;
           const self = this;
           setTimeout(function () {
-              self.expenseFeedback.classList.add('showItem');
+              self.expenseFeedback.classList.remove('showItem');
           }, 3000);
       } else {
           let amount = parseInt(amountValue);
@@ -78,26 +79,24 @@ class UI {
               title: expenseValue,
               amount: amount,
           }
-          this.itemID++;
+          this.itemID++; //each item we add has unique id
           this.itemList.push(expense);
           this.addExpense(expense);
           this.showBalance();
       }
   }
 
-  //add expense
+  //add expense:
   addExpense(expense) {
       const div = document.createElement('div');
       div.classList.add('expense');
       div.innerHTML = `
           <div class="expense-item d-flex justify-content-between align-items-baseline">
-
             <h6 class="expense-title mb-0 text-uppercase list-item">- ${expense.title}</h6>
             <h5 class="expense-amount mb-0 list-item">${expense.amount}</h5>
-
             <div class="expense-icons list-item">
                 <a href="#" class="edit-icon mx-2" data-id="${expense.id}">
-                 <i class="fas fa-edit"></i>
+                    <i class="fas fa-edit"></i>
                 </a>
                 <a href="#" class="delete-icon" data-id="${expense.id}">
                 <i class="fas fa-trash"></i>
@@ -111,19 +110,17 @@ class UI {
 
   //total expense
   totalExpense() {
-     let total = 0;
-     if (this.itemList.length > 0) {
-         total = this.itemList.reduce(function (acc, curr) {
-             acc += curr.amount;
-             return acc;
-         }, 0);
-     }
+    let total = 0;
+    if (this.itemList.length > 0) {
+        total = this.itemList.reduce(function (acc, curr) {
+            acc += curr.amount;
+            return acc;
+        }, 0);
+    }
+    this.expenseAmount.textContent = total;
 
-     this.expenseAmount.textContent = total;
-
-     return total;
+    return total;
   }
-
   //edit expense
   editExpense(element) {
      let id = parseInt(element.dataset.id);
@@ -148,7 +145,6 @@ class UI {
      this.itemList = tempList;
      this.showBalance();
   }
-
   //delete expense
   deleteExpense(element) {
       let id = parseInt(element.dataset.id);
@@ -166,21 +162,23 @@ class UI {
   }
 }
 
+//2
 function eventListeners() {
   const budgetForm = document.getElementById('budget-form');
   const expenseForm = document.getElementById('expense-form');
   const expenseList = document.getElementById('expense-list');
 
-  //create instance of UI Class:
+  //create instance of UI Class:(access to all properties of clas UI)
   const ui = new UI();
 
-  //budget form submit
+  //budget form submit:
   budgetForm.addEventListener('submit', function (event) {
       event.preventDefault();
+
       ui.submitBudgetForm();
   });
 
-  //expense form submit
+  //expense form submit:
   expenseForm.addEventListener('submit', function (event) {
       event.preventDefault();
 
@@ -197,6 +195,7 @@ function eventListeners() {
   });
 }
 
+//1
 document.addEventListener('DOMContentLoaded', function () {
   eventListeners();
 });
