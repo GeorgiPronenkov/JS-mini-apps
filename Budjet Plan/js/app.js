@@ -197,5 +197,5 @@ function eventListeners() {
 
 //1
 document.addEventListener('DOMContentLoaded', function () {
-  eventListeners();
+  eventListeners(); 
 });
