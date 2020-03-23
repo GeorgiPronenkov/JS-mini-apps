@@ -1,0 +1,20 @@
+>npm init
+>npm i axios express
+>npm i --save-dev dotenv nodemon
+
+package.json > "devStart": "nodemon server.js"
+server.js (check for env production)
+create .env > put API_KEY
+server.js(settings....)
+>npm run devStart
+
+create public folder > index.html, style.css, script.js
+
+console.cloud.google.com >
+    create project
+    API & Services > Library > enable Places and enable Maps JavaScript API
+    APIs > search for 'credentials' > API key > restrict key > restrick key >
+     mark Maps API and Places API
+
+    Places API > documentation > Places Library, Maps JavaScript API>
+        clik on YOUR_KEY > generate > copy > insert in index.html
