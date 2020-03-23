@@ -1,4 +1,5 @@
-document.getElementById('issueInputForm').addEventListener('submit', saveIssue);
+document.getElementById('issueInputForm')
+        .addEventListener('submit', saveIssue);
 
 function saveIssue(e) {
   var issueDesc = document.getElementById('issueDescInput').value;
