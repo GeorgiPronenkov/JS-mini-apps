@@ -1,14 +1,13 @@
 function attachEvent() {
-
     $('#submitBtn').click(submit);
     $('.hyperlink-notification').click(function (e) {
-        e.preventDefault(); // Prevent the href from redirecting directly
+        // Prevent the href from redirecting directly
+        e.preventDefault(); 
         var linkURL = $(this).attr("href");
         warnBeforeRedirect(linkURL);
     });
 
     function submit(e) {
-
         warnBeforeSend();
         e.preventDefault();
         e.stopPropagation();
@@ -20,7 +19,6 @@ function attachEvent() {
 
 // SweetAlert Notifications
 function warnBeforeRedirect(linkURL) {
-
     swal({
         title: "Leave this site?",
         text: "If you click 'OK', you will be redirected to " + linkURL,
