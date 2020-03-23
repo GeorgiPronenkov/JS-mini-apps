@@ -8,7 +8,7 @@ const cartItems = document.querySelector('.cart-items');
 const cartTotal = document.querySelector('.cart-total');
 const cartContent = document.querySelector('.cart-content');
 const productsDOM = document.querySelector('.products-center');
-const btns = document.querySelectorAll('.bag-btn');
+//const btns = document.querySelectorAll('.bag-btn');
 
 //cart
 let cart = [];
@@ -17,6 +17,7 @@ let buttonsDOM = [];
 
 //class for getting the products
 class Products {
+
     async getProducts() {
       try {
         let result = await fetch('products.json');
@@ -24,12 +25,12 @@ class Products {
 
         let products = data.items;
         products = products.map(item => {
-            const {title, price} = item.fields;
-            const {id} = item.sys;
+            const { title, price } = item.fields;
+            const { id } = item.sys;
             const image = item.fields.image.fields.file.url;
                 
-            return {title, price, id, image};            
-        })
+            return { title, price, id, image };            
+        });
     
         return products;
 
@@ -39,14 +40,15 @@ class Products {
     }
 }
 
-//UI  class  - display products
+//UI class - display products
 class UI {
+
     displayProducts(products) {
         let result = '';
         products.forEach(product => {
             result += `
-            <!-- single product -->
-            <article class="product">
+             <!-- single product -->
+             <article class="product">
                 <div class="img-container">
                     <img src="${product.image}" alt="product" class="product-img">
                     <button class="bag-btn" data-id=${product.id}>
@@ -55,47 +57,49 @@ class UI {
                 </div>
                 <h3>${product.title}</h3>
                 <h4>$${product.price}</h4>
-            </article>
-            <!-- end of single product -->
-             `;
+             </article>
+             <!-- end of single product -->
+            `;
         });
+        //add it to product-center div
         productsDOM.innerHTML = result;
     }
 
     getBagButtons() {
         const buttons = [...document.querySelectorAll('.bag-btn')];
         buttonsDOM = buttons;
+        //for each button....:
         buttons.forEach(button => {
             let id = button.dataset.id;
             let inCart = cart.find(item => item.id === id);
+            //check if item is in cart:
             if(inCart) {
                 button.innerText = "In Cart";
                 button.disabled = true;
             }
-            else {
-                button.addEventListener('click', (event) => {
-                    event.target.innerText = "In Cart";
-                    event.target.disabled = true;
+           
+            button.addEventListener('click', (event) => {
+                event.target.innerText = "In Cart";
+                event.target.disabled = true;
 
-                    //get product from products
-                    let cartItem = {...Storage.getProduct(id), amount:1}; //id from dataset
+                //get product from products
+                let cartItem = {...Storage.getProduct(id), amount:1}; //id from dataset
 
-                    //add product to cart(array)
-                    cart = [...cart,  cartItem];
+                //add product to cart(array)
+                cart = [...cart, cartItem];
 
-                    //save cart in local storage
-                    Storage.saveCart(cart);
+                //save cart in local storage
+                Storage.saveCart(cart);
 
-                    //set cart values
-                    this.setCartValues(cart);
+                //set cart values
+                this.setCartValues(cart);
 
-                    //display cart item
-                    this.addCartItem(cartItem);
+                //display cart item
+                this.addCartItem(cartItem);
 
-                    //show the cart
-                    this.showCart();
-                });
-            }
+                //show the cart
+                this.showCart();
+            });
         });
     };
 
@@ -218,7 +222,7 @@ class UI {
 class Storage {
 
     static saveProducts(products) {
-        localStorage.setItem("products", JSON.stringify(products));
+        localStorage.setItem("products", JSON.stringify(products)); //stringify-save it as string
     }
 
     static getProduct(id) { //return array in local storage
