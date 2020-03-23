@@ -36,10 +36,10 @@ label, legend{
     display: block;
 }
 
-#valid{
+#valid {
     box-sizing: border-box;
     width: 420px;
-    border: 2px solid black
+    border: 2px solid black;
     color: black;
     background: green;		
     padding: 5px;

@@ -1,5 +1,4 @@
 function validate() {
-
 	let username = $('#username');
 	let email = $('#email');
 	let password = $('#password');
@@ -11,14 +10,42 @@ function validate() {
 	let validationDiv = $('#valid');
 	let allIsValid = true;
 
-	//checkbox mark/unmark
-	companyCheckBox.on('change', function() {
-		if (companyCheckBox.is(':checked')) {
-		    companyInfo.css('display', 'block');
+	//validate form
+	function validateForm() {
+		validateInput(username, /^[A-Za-z\d]{3,20}$/g);
+		validateInput(email, /^.*?@.*?\..*$/g);
+		if (confirmPassword.val() === password.val()) {
+			validateInput(password, /^\w{5,15}$/g);
+			validateInput(confirmPassword, /^\w{5,15}$/g);
 		} else {
-		    companyInfo.css('display' ,'none');
+		    confirmPassword.css('border', 'solid red');
+			password.css('border', 'solid red');
+			window.alert('Password did not match required pattern!')
+			allIsValid = false;
 		}
-	});
+	}
+
+	//regEx
+	function validateInput(input, pattern) {
+		if (pattern.test(input.val())) {
+			input.css('border', 'none');
+		} else {
+			input.css('border', 'solid red');
+			window.alert('Please, fill the form correctly!')
+		    allIsValid = false;
+		}
+	}
+
+	//validate company info
+	function validateCompanyInfo() {
+		let numValue = Number(companyNumber.val());
+		if (numValue >= 1000 && numValue <= 9999) {
+		    companyNumber.css('border', 'none');
+		} else {
+		    companyNumber.css('border', 'solid red');
+		    allIsValid = false;
+		}
+	}
 
 	//submit button
 	submitBtn.on('click', function (ev) {
@@ -28,40 +55,12 @@ function validate() {
 		allIsValid = true;
 	});
 
-	//validate
-	function validateForm() {
-		validateInputWithRegEx(username, /^[A-Za-z\d]{3,20}$/g);
-		validateInputWithRegEx(email, /^.*?@.*?\..*$/g);
-		if (confirmPassword.val() === password.val()) {
-		 	validateInputWithRegEx(password, /^\w{5,15}$/g);
-		 	validateInputWithRegEx(confirmPassword, /^\w{5,15}$/g);
+	//checkbox mark/unmark
+	companyCheckBox.on('change', function() {
+		if (companyCheckBox.is(':checked')) {
+		    companyInfo.css('display', 'block');
 		} else {
-		    confirmPassword.css('border', 'solid red');
-		    password.css('border', 'solid red');
-		    allIsValid = false;
+		    companyInfo.css('display' ,'none');
 		}
-	}
-
-	//regEx
-	function validateInputWithRegEx(input, pattern) {
-
-		if (pattern.test(input.val())) {
-		    input.css('border', 'none');
-		} else {
-		    input.css('border', 'solid red');
-		    allIsValid = false;
-		}
-	}
-
-	//validate company info
-	function validateCompanyInfo() {
-
-		let numValue = Number(companyNumber.val());
-		if (numValue >= 1000 && numValue <= 9999) {
-		    companyNumber.css('border', 'none');
-		} else {
-		    companyNumber.css('border', 'solid red');
-		    allIsValid = false;
-		}
-	}
+	});
 }
