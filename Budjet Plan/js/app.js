@@ -17,7 +17,6 @@ class UI {
     this.itemID = 0;
     
   }
-
   //submit budget:
   submitBudgetForm() {
      const value = this.budgetInput.value;
