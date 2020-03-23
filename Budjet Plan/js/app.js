@@ -1,5 +1,5 @@
 class UI {
-  //all intances  
+  //all intances:
   constructor() { //run every time we initiate the class
     this.budgetFeedback = document.querySelector(".budget-feedback");
     this.expenseFeedback = document.querySelector(".expense-feedback");
