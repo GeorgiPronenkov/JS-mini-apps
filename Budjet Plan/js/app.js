@@ -15,6 +15,7 @@ class UI {
     this.expenseList = document.getElementById("expense-list");
     this.itemList = [];
     this.itemID = 0;
+    
   }
 
   //submit budget:
