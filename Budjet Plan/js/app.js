@@ -1,6 +1,6 @@
 class UI {
   //all intances:
-  constructor() { //run every time we initiate the class
+  constructor() { // run every time we initiate the class
     this.budgetFeedback = document.querySelector(".budget-feedback");
     this.expenseFeedback = document.querySelector(".expense-feedback");
     this.budgetForm = document.getElementById("budget-form");
