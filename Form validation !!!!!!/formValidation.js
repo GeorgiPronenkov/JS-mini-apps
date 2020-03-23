@@ -51,6 +51,7 @@ function validate() {
 	submitBtn.on('click', function (ev) {
 		ev.preventDefault();
 		validateForm();
+		
 		validationDiv.css('display', allIsValid ? 'block' : 'none');
 		allIsValid = true;
 	});
