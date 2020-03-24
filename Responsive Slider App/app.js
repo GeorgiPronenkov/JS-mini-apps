@@ -24,7 +24,9 @@ const nextSlide = () => {
                  .add('current');
     }
 
-    setTimeout(() => current.classList.remove('current'));
+    //set delay:
+    setTimeout(() => current.classList
+                            .remove('current'));
 }
 
 //previous
@@ -43,6 +45,7 @@ const prevSlide = () => {
         slides[slides.length - 1].classList
                                  .add('current');
     }
+    
     setTimeout(() => current.classList
                             .remove('current'));
 }
