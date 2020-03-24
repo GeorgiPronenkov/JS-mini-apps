@@ -1,5 +1,6 @@
-//Book class: represents a Book
+//1/Book class: represents a Book
 class Book {
+
     constructor(title, author, isbn) {
         this.title = title;
         this.author = author;
@@ -9,12 +10,15 @@ class Book {
 
 //UI Class: handle UI tasks
 class UI {
+
+    //display books:
     static displayBooks() {
         const books = Store.getBooks();
 
         books.forEach((book) => UI.addBookToList(book));
     }
 
+    //add books to list:
     static addBookToList(book) {
         const list = document.querySelector('#book-list');
         const row = document.createElement('tr');
@@ -25,16 +29,19 @@ class UI {
             <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>    
         `;
 
+        //append row to the list
         list.appendChild(row);
     }
 
     static deleteBook(el) {
         if (el.classList.contains('delete')) {
-            el.parentElement.parentElement.remove();
+            el.parentElement
+                .parentElement
+                .remove();
         }
     }
 
-    //alert:
+    //show alert:
     static showAlert(message, className) {
         const divEl = document.createElement('div');
         divEl.className = `alert alert-${className}`;
@@ -44,10 +51,11 @@ class UI {
         container.insertBefore(divEl, form);
 
         //vanish in 3seconds
-        setTimeout(() => document.querySelector('.alert').remove(), 3000);
-
+        setTimeout(() => document.querySelector('.alert')
+                                 .remove(), 3000);
     }
 
+    //clear fields:
     static clearFields() {
         document.querySelector('#title').value = '';
         document.querySelector('#author').value = '';
@@ -84,16 +92,17 @@ class Store {
          }
       });
 
+      //reset local storage 
       localStorage.setItem('books', JSON.stringify(books));
     }
 }
 
-//Events: display Books
+//Event: display Books
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
 
 //event: add a book
-document.querySelector('#book-form').addEventListener('submit', (e) => {
-
+document.querySelector('#book-form')
+        .addEventListener('submit', (e) => {
     //prevent actual submit
     e.preventDefault();
 
@@ -124,14 +133,16 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 });
 
 //event: remove a book
-document.querySelector('#book-list').addEventListener('click', (e) => {
-
+document.querySelector('#book-list')
+        .addEventListener('click', (e) => {
     //remove book from UI
     UI.deleteBook(e.target);
 
     //remove book from storage
-    Store.removeBook(e.target.parentElement.previousElementSibling.textContent);
-
+    Store.removeBook(e.target
+                        .parentElement //<td>
+                          .previousElementSibling
+                            .textContent);
     //show delete message
     UI.showAlert('Book Removed', 'danger');
 });
