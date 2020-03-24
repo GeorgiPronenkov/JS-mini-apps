@@ -15,15 +15,18 @@ class item {
         input.type = "text";
 
         let itemBox = document.createElement('div');
-        itemBox.classList.add('item');
+        itemBox.classList
+               .add('item');
 
         let editButton = document.createElement('button');
         editButton.innerHTML = "EDIT";
-        editButton.classList.add('editButton');
+        editButton.classList
+                  .add('editButton');
 
         let removeButton = document.createElement('button');
         removeButton.innerHTML = "REMOVE";
-        removeButton.classList.add('removeButton');
+        removeButton.classList
+                    .add('removeButton');
 
         container.appendChild(itemBox);
 
@@ -54,6 +57,7 @@ function check() {
 
 addButtton.addEventListener('click', check);
 
+//pres enter:
 window.addEventListener('keydown', (e) => {
     if(e.which == 13) {
         check();
