@@ -10,9 +10,12 @@ body{
     border:0;
     color:white;
     padding: 10px 10px;
-    padding-right: 40px;
+    padding-right: 30px;
     cursor: pointer;
     margin-top: 35px;
+    
+}
+span {
     text-align: center;
 }
 
