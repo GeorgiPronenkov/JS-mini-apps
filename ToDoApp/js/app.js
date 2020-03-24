@@ -18,7 +18,7 @@ let data = localStorage.getItem("TODO");
 
 //check data is not empty
 if (data) {
-    LIST = JSON.stringify(data);
+    LIST = JSON.parse(data);
     id = LIST.length; //set id to the last one in the list
     loadList(LIST); //load the list to the user interface
 } else {
@@ -40,14 +40,18 @@ clear.addEventListener("click", function () {
     location.reload();
 });
 
-//show today date:
+//show todays date:
 const today = new Date();
-const options = { weekday:"long", month:"short", day:"numeric" };
+const options = { 
+    weekday:"long", 
+    month:"short", 
+    day:"numeric" 
+};
 dateElement.innerHTML = today.toLocaleDateString("en-US", options);
 
-//add to-do method
+//1/add to-do method
 function addToDo(toDo, id, done, trash) {
-
+    //if item is in the trash
     if (trash) {
         return;
     }
@@ -56,19 +60,18 @@ function addToDo(toDo, id, done, trash) {
     const LINE = done ? LINE_THROUGH : "";
 
     const item = `
-                   <li class="item">
-                     <i class="fa ${DONE} co" job="complete" id="${id}"></i>
-                     <p class="text ${LINE}">${toDo}</p>
-                     <i class="fa fa-trash-o de" job="delete" id="${id}"></i>
-                   </li> 
-                 `;
+        <li class="item">
+            <i class="fa ${DONE} co" job="complete" id="${id}"></i>
+            <p class="text ${LINE}">${toDo}</p>
+            <i class="fa fa-trash-o de" job="delete" id="${id}"></i>
+        </li> 
+    `;
     const position = "beforeend"; //place input item at the end
     list.insertAdjacentHTML(position, item);
 }
 
 //add item to the list user
 document.addEventListener("keyup", function (e) {
-
     if (event.keyCode === 13) { //13 is enter key
         const toDo = input.value;
         if (toDo) { //if input is not empty:
@@ -95,7 +98,10 @@ function completeToDo(element) {
     //if CLASS exist > remove class
     element.classList.toggle(CHECK); //if is checked >> unchecked
     element.classList.toggle(UNCHECK); //if is unchecked >> checked
-    element.parentNode.querySelector(".text").classList.toggle(LINE_THROUGH);
+    element.parentNode
+           .querySelector(".text")
+           .classList
+           .toggle(LINE_THROUGH);
 
     //update list
     LIST[element.id].done = !LIST[element.id].done;
@@ -110,7 +116,6 @@ function removeTodo(element) { //element - item from user interface
 
 //target items created dynamically
 list.addEventListener("click", function (event) {
-
    const element = event.target; //return clicked element inside list element
    const elementJob = element.attributes.job.value; //complete or delete
 
