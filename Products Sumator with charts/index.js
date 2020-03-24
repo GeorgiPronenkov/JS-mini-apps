@@ -33,7 +33,8 @@ txtBtn.addEventListener('click', function() {
     if (!txtInput.value) {
         return false;
     }
-   dataCosts.options.push(txtInput.value);
+   dataCosts.options
+            .push(txtInput.value);
    updateOpt(selectId, dataCosts.options);
 });
 

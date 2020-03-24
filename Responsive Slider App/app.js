@@ -43,7 +43,8 @@ const prevSlide = () => {
         slides[slides.length - 1].classList
                                  .add('current');
     }
-    setTimeout(() => current.classList.remove('current'));
+    setTimeout(() => current.classList
+                            .remove('current'));
 }
 
 //buttons events
