@@ -45,7 +45,9 @@ function updateOpt(container, options) {
          if (index === 1) {
               preselectedValue = 'selected';
          }
-        container.innerHTML += `<option ${preselectedValue} value="${options[index]}">${options[index]}</option>`
+        container.innerHTML += `
+            <option ${preselectedValue} value="${options[index]}">${options[index]}</option>
+        `;
      }     
 }
 updateOpt(selectId, dataCosts.options);
@@ -95,4 +97,3 @@ function doughNutChart(chartData) {
       // initiate drawing the chart
       chart.draw();
 }
-
