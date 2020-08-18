@@ -3,6 +3,7 @@
     width: 475px;
     height: 500px;
     background-color: steelblue; 
+    border-radius: 20px;
 }
 
 form{
@@ -23,7 +24,13 @@ p{
     margin: 5px auto;
     height: 300px;
 }
-#weight-guide span{
+#weight-guide p:nth-child(2) span{
+    color: greenyellow;
+}
+#weight-guide p:nth-child(3) span{
+    color: orange;
+}
+#weight-guide p:nth-child(4) span{
     color: red;
 }
 
