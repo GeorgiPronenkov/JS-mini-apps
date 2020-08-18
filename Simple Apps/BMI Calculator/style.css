@@ -21,6 +21,10 @@ p{
 
 #weight-guide{
     margin: 5px auto;
+    height: 300px;
+}
+#weight-guide span{
+    color: red;
 }
 
 #results{
