@@ -12,5 +12,7 @@ inputUnit.addEventListener('input', function (e) {
                     .innerHTML = kgs * 2.2046226218;
             document.getElementById('ozOutput')
                     .innerHTML = kgs * 35.27396195;
+            document.getElementById('tonsOutput')
+                    .innerHTML = kgs / 1000;        
         });
 inputUnit.value = '';
