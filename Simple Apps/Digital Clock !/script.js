@@ -9,7 +9,7 @@ function showTime() {
 
     hours = checkTime(hours);
 
-    // hours = addZero(hours);
+    hours = addZero(hours);
     minutes = addZero(minutes);
     seconds = addZero(seconds);
     document.getElementById('clock')
