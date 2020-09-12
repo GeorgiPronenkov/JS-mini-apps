@@ -1,1 +1,3 @@
-/* www.youtube.com/CodeExplained */
+const chart = document.querySelector(".chart");
+
+//create canvas
