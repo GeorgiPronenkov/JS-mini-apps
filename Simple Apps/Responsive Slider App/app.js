@@ -16,8 +16,9 @@ const nextSlide = () => {
     //check for next slide
     if (current.nextElementSibling) {
         //add current to next sibling
-        current.nextElementSibling.classList
-                                  .add('current');
+        current.nextElementSibling
+               .classList
+               .add('current');
     } else {
         //add current to start
         slides[0].classList
@@ -25,8 +26,9 @@ const nextSlide = () => {
     }
 
     //set delay:
-    setTimeout(() => current.classList
-                            .remove('current'));
+    setTimeout(() =>
+        current.classList
+               .remove('current'));
 }
 
 //previous
@@ -46,8 +48,9 @@ const prevSlide = () => {
                                  .add('current');
     }
     
-    setTimeout(() => current.classList
-                            .remove('current'));
+    setTimeout(() =>
+        current.classList
+               .remove('current'));
 }
 
 //buttons events

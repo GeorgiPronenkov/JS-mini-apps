@@ -8,7 +8,6 @@ addCount.addEventListener('click', increment);
 lowerCount.addEventListener('click', decrement);
 
 function increment() {
-
     count++;
     counter.innerHTML = count;
     if (counter.innerHTML > '0') {
@@ -22,7 +21,6 @@ function increment() {
 }
 
 function decrement() {
-
     count--;
     counter.innerHTML = count;
     if (counter.innerHTML < '0') {

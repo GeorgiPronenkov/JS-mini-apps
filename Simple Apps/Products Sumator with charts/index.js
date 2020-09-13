@@ -7,22 +7,22 @@ const txtBtn = document.getElementById('txtSubmit');
 //costs object
 const dataCosts = {
     options: ['beer', 'food', 'fuel'],
-    expences: {},
+    expenses: {},
     get Total() {
-       return Object.values(this.expences)
+       return Object.values(this.expenses)
             .reduce((a,b) => a + b);
     },
     get Entries() {
-        return Object.entries(this.expences);
+        return Object.entries(this.expenses);
     } 
 };
 
 //firstButton
 submitBtn.addEventListener('click', function() {
-    if (dataCosts.expences[selectId.value]) {
-        dataCosts.expences[selectId.value] += +input.value;
+    if (dataCosts.expenses[selectId.value]) {
+        dataCosts.expenses[selectId.value] += +input.value;
     } else {
-        dataCosts.expences[selectId.value] = +input.value;
+        dataCosts.expenses[selectId.value] = +input.value;
     }
     //drawBarChart(dataObj.Entries);
     doughNutChart(dataCosts.Entries);

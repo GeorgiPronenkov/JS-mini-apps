@@ -63,6 +63,6 @@
     color: slateblue;
 }
 header{
-    min-height: calc(100vh - 91.8px);
+    min-height: calc(100vh - 92px);
     background: url('./01_citictower_ext-context_full.jpg')center/cover no-repeat;
 }

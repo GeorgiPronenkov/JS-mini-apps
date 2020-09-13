@@ -7,10 +7,9 @@ const hex = document.querySelector('.hex');
 hexBtn.addEventListener('click', getHex); //getHex-callback function
 
 function getHex() {
-
     let hexCol = '#';
     for (let i = 0; i < 9; i++) {
-        let random = Math.floor(Math.random()*hexNumbers.length);
+        let random = Math.floor(Math.random() * hexNumbers.length);
         hexCol += hexNumbers[random];
         bodyBackground.style.backgroundColor = hexCol;
         hex.innerHTML = hexCol;

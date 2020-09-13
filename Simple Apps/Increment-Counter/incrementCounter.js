@@ -1,7 +1,7 @@
 function increment(selector) {
-	//get the selector as html element because it is a a string now
-	let parent = $(`${selector}`);
 
+	//get the selector as html element because it is a string now
+	let parent = $(`${selector}`);
 	//creating elements
 	(function createElements() {
 		let textarea = $(`<textarea>`);
@@ -14,7 +14,7 @@ function increment(selector) {
 		incrementBtn.attr('id', 'incrementBtn');
 		incrementBtn.text('Increment');
 
-		incrementBtn.on('click', function () {
+		incrementBtn.on('click', function() {
 			let currentValue = +$('.counter').val();
 			textarea.val(currentValue + 1);
 		});
@@ -24,7 +24,7 @@ function increment(selector) {
 		addBtn.attr('id', 'addBtn');
 		addBtn.text('Add');
 
-		addBtn.on('click', function () {
+		addBtn.on('click', function() {
 			let li = $('<li>');
 			li.text($('.counter').val());
 			$('.results').append(li); //взема ul с class=results И добавя тек.li
