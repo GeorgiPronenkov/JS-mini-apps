@@ -1,7 +1,7 @@
 .container {
     margin: 10px auto;
     width: 475px;
-    height: 500px;
+    height: 650px;
     background-color: steelblue; 
     border-radius: 20px;
 }
@@ -32,12 +32,13 @@ p{
 }
 #weight-guide p:nth-child(4) span{
     color: red;
+    font-weight: bold;
+    background: darkgrey;
 }
 
 #results{
     font-size: 40px;
-    margin:5px auto;
-    margin-top: 20px;
+    margin: 20px auto 5px;
     color: red;
     background: darkgreen;
     font-weight: 400;

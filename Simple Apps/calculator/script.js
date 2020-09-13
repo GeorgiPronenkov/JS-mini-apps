@@ -4,7 +4,7 @@ const equalBtn = document.querySelector('.btn-equal');
 const clearBtn = document.querySelector('.btn-clear');
 
 for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', function(){
+    buttons[i].addEventListener('click', function() {
         let number = buttons[i].getAttribute("data-num");
         screen.value += number;
     });
