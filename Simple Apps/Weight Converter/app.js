@@ -2,7 +2,7 @@ document.getElementById('output')
         .style.visibility = 'hidden';
 let inputUnit = document.getElementById('kgInput');
 
-inputUnit.addEventListener('input', function (e) {
+inputUnit.addEventListener('input', function(e) {
             document.getElementById('output')
                     .style.visibility = 'visible';
             let kgs = e.target.value;

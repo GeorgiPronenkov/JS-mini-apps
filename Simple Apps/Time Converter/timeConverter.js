@@ -6,7 +6,7 @@ function attachEventsListeners() {
 	let $seconds = $('#seconds');
 
 	//get buttons
-	$('input[type="button"]').on('click', function () {
+	$('input[type="button"]').on('click', function() {
 		let unit = $(this).attr('id')
 						  .replace('Btn', '');
 

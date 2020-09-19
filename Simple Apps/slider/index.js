@@ -8,7 +8,7 @@ prevBtn.addEventListener('click', prevSlide);
 
 function nextSlide() {
 
-    if(counter === 7){
+    if(counter === 7) {
         counter = 0;
     }
     counter++;
@@ -18,7 +18,7 @@ function nextSlide() {
 
 function prevSlide() {
 
-    if(counter === 0){
+    if(counter === 0) {
         counter = 5;
     }
     counter--;
