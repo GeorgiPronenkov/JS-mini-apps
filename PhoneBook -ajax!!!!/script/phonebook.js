@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
    const baseURL = "https://phonebook-ec6c8.firebaseio.com/Phonebook/";
 
    $('#btnLoad').on('click', (loadData()));
