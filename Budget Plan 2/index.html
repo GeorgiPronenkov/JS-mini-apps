@@ -2,35 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Budget Plan</title>
+    <title>My Budjet Plan</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="budget-container">
         <div class="app-title">
-            <a href="">CODE</a>
+            <a href=""><b>Money Plan</b></a>
         </div>
         <div class="budget-header">
             <div class="balance">
                 <div class="title">Balance</div>
                 <div class="value">
-                    <small>$0</small>
+                    <small>$</small>0
                 </div>
             </div>
             <div class="account">
                 <div class="income">
                     <div class="title">Income</div>
                     <div class="income-total">
-                        <small>$0</small>
+                        <small>$</small>0
                     </div>
                 </div>
-                <div class="chart">
-                    <div class="outcome">
-                        <div class="title">Income</div>
-                        <div class="outcome-total">
-                            <small>$0</small>
-                        </div>
+                <div class="chart"></div>
+                <div class="outcome">
+                    <div class="title">Income</div>
+                    <div class="outcome-total">
+                        <small>$</small>0
                     </div>
                 </div>
             </div>
@@ -57,7 +55,7 @@
                 <div class="input">
                     <input type="text" id="expense-title-input" name="title" placeholder="Title">
                     <input type="number" id="expense-amount-input" name="amount" placeholder="$0">
-                    <div class="add-expense">
+                    <div class="add-income">
                         <img src="icon/plus.png" alt="">
                     </div>
                 </div>
@@ -65,10 +63,10 @@
             <div id="all">
                 <ul class="list"></ul>
             </div>
-        </div> 
+        </div>
     </div>
 
-    <script src="budget.js"></script>
     <script src="chart.js"></script>
+    <script src="budget.js"></script>
 </body>
 </html>
