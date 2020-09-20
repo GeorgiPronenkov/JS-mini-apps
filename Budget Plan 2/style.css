@@ -51,6 +51,7 @@ input[type=number] {
 .budget-container .app-title{
     margin-top: 45px;
     margin-left: 20px;
+    text-align: center;
 }
 
 .budget-container .app-title a{
@@ -70,13 +71,13 @@ input[type=number] {
 }
 
 .budget-header .balance .title{
-    color: #FFF;
+    color: lightsalmon;
     font-size: 1em;
     font-family: 'Gilroy Bold';
 }
 
 .budget-header .balance .value{
-    color: #FFF;
+    color: lawngreen;
     font-size: 2em;
     margin-top: 10px;
     font-family: 'Gilroy Bold';
@@ -150,12 +151,20 @@ input[type=number] {
     opacity: 0.4;
 }
 
+.toggle .tab1 {
+    color: red;
+}
+
+.toggle .tab2 {
+    color: green;
+}
 .toggle .tab2, .tab3{
     margin-left: 10px;
 }
 
 .active{
     opacity : 1 !important;
+    text-decoration: underline;
 }
 
 .hide{
@@ -222,13 +231,15 @@ input[type=number] {
 }
 
 .budget-dashboard #all ul.list li.income{
-
+    color: green;
 }
 .budget-dashboard #all ul.list li.expense{
-    color: #f0624d;
+    color: red;
 }
 
-/* //////// EXPENSE ////////// */
+
+
+    /* //////// EXPENSE ////////// */
 .budget-dashboard #expense{
     width: 360px;
     height: 339px;
@@ -299,6 +310,18 @@ input[type=number] {
     vertical-align: middle;
 }
 
+.budget-dashboard #income {
+    color: green;
+}
+
+.budget-dashboard #expense .list .expense > div.entry {
+    color: red;
+}
+
+.budget-dashboard #expense ul.list li .expense {
+    color: red;
+}
+
 .budget-dashboard #expense ul.list li .entry{
     width:250px;
     height: auto;
@@ -306,7 +329,6 @@ input[type=number] {
     margin-bottom: 10px;;
     word-wrap: break-word;
     font-family: 'Gilroy Bold';
-    color: #f0624d;
 }
 
 .budget-dashboard #expense ul.list li #edit{
