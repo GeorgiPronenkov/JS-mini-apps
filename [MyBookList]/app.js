@@ -2,46 +2,47 @@
 class Book {
 
     constructor(title, author, isbn) {
+        //2.set whatever is passed from title,author,isbn to the properties of object
         this.title = title;
         this.author = author;
         this.isbn = isbn;
     }
 }
 
-//UI Class: handle UI tasks
+//3.UI Class: handle UI tasks
 class UI {
 
-    //display books:
+    //4.display books:
     static displayBooks() {
         const books = Store.getBooks();
 
         books.forEach((book) => UI.addBookToList(book));
     }
 
-    //add books to list:
+    //5.add books to list:
     static addBookToList(book) {
         const list = document.querySelector('#book-list');
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${book.title}</td>    
-            <td>${book.author}</td>    
-            <td>${book.isbn}</td>    
-            <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>    
-        `;
+                        <td>${book.title}</td>    
+                        <td>${book.author}</td>    
+                        <td>${book.isbn}</td>    
+                        <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>    
+                        `;
 
-        //append row to the list
+        //6.append row to the list
         list.appendChild(row);
     }
-
+    //15.
     static deleteBook(el) {
         if (el.classList.contains('delete')) {
-            el.parentElement
-                .parentElement
-                .remove();
+                el.parentElement
+                  .parentElement //the remove the whole tr
+                  .remove();
         }
     }
 
-    //show alert:
+    //17.show alert:
     static showAlert(message, className) {
         const divEl = document.createElement('div');
         divEl.className = `alert alert-${className}`;
@@ -50,12 +51,12 @@ class UI {
         const form = document.querySelector('#book-form');
         container.insertBefore(divEl, form);
 
-        //vanish in 3seconds
+        //18.vanish in 4seconds
         setTimeout(() => document.querySelector('.alert')
-                                 .remove(), 3000);
+                                          .remove(), 4000);
     }
 
-    //clear fields:
+    //12.5.clear fields:
     static clearFields() {
         document.querySelector('#title').value = '';
         document.querySelector('#author').value = '';
@@ -97,45 +98,45 @@ class Store {
     }
 }
 
-//Event: display Books
-document.addEventListener('DOMContentLoaded', UI.displayBooks);
+//7.Event: display Books
+    document.addEventListener('DOMContentLoaded', UI.displayBooks);
 
-//event: add a book
-document.querySelector('#book-form')
-        .addEventListener('submit', (e) => {
-    //prevent actual submit
+//8.event: add a book
+    document.querySelector('#book-form')
+            .addEventListener('submit', (e) => {
+    //8.5.prevent actual submit
     e.preventDefault();
 
-    //get form values
+    //9.get form values
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
     const isbn = document.querySelector('#isbn').value;
 
-    //validate
+    //16.validate
     if (title === '' || author === '' || isbn === '') {
         UI.showAlert('All fields required!!!', 'danger');
     } else {
-        //instantiate book
+        //10.instantiate book
         const book = new Book(title, author, isbn);
 
-        //add book to UI
+        //11.add book to UI
         UI.addBookToList(book);
 
         //add book to store
         Store.addBook(book);
 
-        //show success message
+        //19.show success message
         UI.showAlert('Book Added', 'success');
 
-        //clear fields
+        //12.clear fields
         UI.clearFields();
     }
 });
 
-//event: remove a book
-document.querySelector('#book-list')
-        .addEventListener('click', (e) => {
-    //remove book from UI
+//13.event: remove a book
+    document.querySelector('#book-list')
+            .addEventListener('click', (e) => {
+    //14.remove book from UI
     UI.deleteBook(e.target);
 
     //remove book from storage
