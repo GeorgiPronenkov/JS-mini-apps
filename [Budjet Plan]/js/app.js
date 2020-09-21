@@ -23,13 +23,13 @@ class UI {
      if (value === '' || value < 0) {
          //access to feedback
          this.budgetFeedback.classList.add('showItem');
-         this.budgetFeedback.innerHTML = `<p>value cannot be negative or empty</p>`;
+         this.budgetFeedback.innerHTML = `<p>Value cannot be negative or empty!</p>`;
          const self = this;
          
          //hide alert message:
-         setTimeout(function () {
+         setTimeout(function() {
             self.budgetFeedback.classList.remove('showItem')
-         }, 3000);
+         }, 4000);
      } else {
          this.budgetAmount.textContent = value;
          this.budgetInput.value = '';
@@ -38,7 +38,7 @@ class UI {
      }
   }
 
-  //show balance:
+  //show BALANCE:
   showBalance() {
      const expense = this.totalExpense();
      const total = parseInt(this.budgetAmount.textContent) - expense;
@@ -68,7 +68,7 @@ class UI {
           const self = this;
           setTimeout(function () {
               self.expenseFeedback.classList.remove('showItem');
-          }, 3000);
+          }, 4000);
       } else {
           let amount = parseInt(amountValue);
           this.amountInput.value = "";

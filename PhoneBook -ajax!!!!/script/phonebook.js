@@ -19,7 +19,7 @@ $(function() {
                $('#phonebook').empty();
                printData(data);
            })
-           .catch(err => console.log(err));
+           .catch(err => console.log(err));r
 
        //data view
        function printData(data) {

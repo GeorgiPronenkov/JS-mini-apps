@@ -87,7 +87,8 @@ function deleteBookmark(url) {
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
 
     //clear form
-    document.getElementById('myForm').reset();
+    document.getElementById('myForm')
+            .reset();
 
     //re-fetch bookmarks
     fetchBookmarks();

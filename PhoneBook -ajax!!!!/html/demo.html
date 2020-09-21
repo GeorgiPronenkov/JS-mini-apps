@@ -6,17 +6,35 @@
     <script src="../script/jquery-3.4.1.min.js"></script>
     <script src="../script/phonebook.js"></script>
 </head>
-<body>
-<h1>Phonebook</h1>
-<ul id="phonebook"></ul>
-<button id="btnLoad">Load</button>
-<h2>Create Contact</h2>
-<label for="person">Person: </label>
-    <input type="text" id="person" />
-    <br>
-<label for="phone">Phone: </label>
-    <input type="text" id="phone" />
-    <br>
-<button id="btnCreate">Create</button>
-</body>
+    <body>
+    <div class="main">
+        <h1>Phonebook</h1>
+        <ul id="phonebook"></ul>
+        <button id="btnLoad">Load</button>
+        <h2>Create Contact</h2>
+        <label for="person">Person: </label>
+        <input type="text" id="person" />
+        <br>
+        <label for="phone">Phone: </label>
+        <input type="text" id="phone" />
+        <br>
+        <button id="btnCreate">Create</button>
+    </div>
+
+    </body>
 </html>
+
+<style>
+    .main {
+        width: 60%;
+        margin: 0 auto;
+        text-align: center;
+        border: 2px solid black;
+        border-radius: 30px;
+    }
+    input {
+        width: 40%;
+        height: 20%;
+    }
+
+</style>
