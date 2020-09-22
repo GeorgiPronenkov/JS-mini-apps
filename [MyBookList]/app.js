@@ -64,7 +64,7 @@ class UI {
     }
 }
 
-//Store Class: handles Storage
+//21.Store Class: handles Storage
 class Store {
 
     static getBooks() {
@@ -93,7 +93,7 @@ class Store {
          }
       });
 
-      //reset local storage 
+      //22.reset local storage
       localStorage.setItem('books', JSON.stringify(books));
     }
 }
@@ -122,7 +122,7 @@ class Store {
         //11.add book to UI
         UI.addBookToList(book);
 
-        //add book to store
+        //23.add book to store
         Store.addBook(book);
 
         //19.show success message
@@ -139,11 +139,11 @@ class Store {
     //14.remove book from UI
     UI.deleteBook(e.target);
 
-    //remove book from storage
+    //24.remove book from storage
     Store.removeBook(e.target
-                        .parentElement //<td>
-                          .previousElementSibling
-                            .textContent);
-    //show delete message
+                      .parentElement //<td>
+                      .previousElementSibling
+                      .textContent); //get isbn
+    //20.show delete message
     UI.showAlert('Book Removed', 'danger');
 });
