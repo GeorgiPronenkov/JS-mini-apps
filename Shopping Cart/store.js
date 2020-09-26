@@ -71,7 +71,7 @@ function addItemToCart(title, price, imageSrc) {
            .addEventListener('change', quantityChanged);       
 }
 
-//4
+//4.
 function removeCartImem(event) {
     
     const btnClicked = event.target;
