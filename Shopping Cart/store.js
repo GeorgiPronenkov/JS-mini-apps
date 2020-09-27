@@ -3,7 +3,7 @@ if (document.readyState == 'loading') {
 } else {
     ready();
 }
-//3
+//3.
 function ready() {
     
     const removeCartItemBtns = document.getElementsByClassName('btn-danger');
