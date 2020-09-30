@@ -2,13 +2,14 @@
 const cartBtn = document.querySelector('.cart-btn');
 const closeCartBtn = document.querySelector('.close-cart');
 const clearCartBtn = document.querySelector('.clear-cart');
+const shopNow = document.getElementsByClassName('.banner-btn'); //?? from banner-btn => section.products
 const cartDOM = document.querySelector('.cart');
 const cartOverlay = document.querySelector('.cart-overlay');
 const cartItems = document.querySelector('.cart-items');
 const cartTotal = document.querySelector('.cart-total');
 const cartContent = document.querySelector('.cart-content');
 const productsDOM = document.querySelector('.products-center');
-//const btns = document.querySelectorAll('.bag-btn');
+const btns = document.querySelectorAll('.bag-btn');
 
 //cart
 let cart = [];
@@ -143,6 +144,7 @@ class UI {
        this.setCartValues(cart);
        this.populateCart(cart);
        cartBtn.addEventListener('click', this.showCart);
+
        closeCartBtn.addEventListener('click', this.hideCart);
     }
 
@@ -260,3 +262,5 @@ document.addEventListener("DOMContentLoaded", () => {
         ui.cartLogic();
     });
 });
+
+shopNow.addEventListener('click', displayProducts());//????

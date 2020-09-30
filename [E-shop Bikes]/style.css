@@ -212,10 +212,13 @@ img {
       min-width: 450px;
     }
   }
-  
   .close-cart {
-    font-size: 1.7rem;
+    font-size: 2.4rem;
     cursor: pointer;
+  }
+  
+  .cart-overlay .cart span i {
+    color: peru;
   }
   .cart h2 {
     text-transform: capitalize;
@@ -250,6 +253,8 @@ img {
   .remove-item {
     color: rgb(243, 8, 8);
     cursor: pointer;
+    font-weight: bold;
+    font-size: 30px;
   }
   .fa-chevron-up,
   .fa-chevron-down {
