@@ -1,5 +1,5 @@
 // select chart element
-const chart = document.querySelector(".chart");
+let chart = document.querySelector(".chart");
 
 //create canvas element
 const canvas = document.createElement("canvas");

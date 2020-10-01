@@ -10,7 +10,7 @@ for (let i = 0; i < buttons.length; i++) {
     });
 }
 
-equalBtn.addEventListener('click', function () {  
+equalBtn.addEventListener('click', function() {
     let value = eval(screen.value);
     screen.value = value;
 });

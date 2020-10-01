@@ -49,7 +49,7 @@ class item {
 }
 
 function check() {
-    if(input.value != "") {
+    if(input.value !== "") {
         new item(input.value);
         input.value = "";
     }
@@ -59,7 +59,7 @@ addButtton.addEventListener('click', check);
 
 //pres enter:
 window.addEventListener('keydown', (e) => {
-    if(e.which == 13) {
+    if(e.which === 13) {
         check();
     }
 });

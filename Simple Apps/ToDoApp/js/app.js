@@ -29,7 +29,7 @@ if (data) {
 
 //load items to the user's interface
 function loadList(array) {
-    array.forEach(function (item) {
+    array.forEach(function(item) {
        addToDo(item.name, item.id, item.done, item.trash);
     });
 }

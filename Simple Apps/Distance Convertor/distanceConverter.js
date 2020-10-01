@@ -18,7 +18,7 @@ function attachEventsListeners() {
 		let input = Number(document.getElementById('inputDistance').value);
 		let inputUnits = document.getElementById('inputUnits').value;
 		let outUnits = document.getElementById('outputUnits').value;
-		let result = input * (ratesInMeters[inputUnits] / ratesInMeters[outUnits]);
+		let result = input * (ratesInMeters[inputUnits] / ratesInMeters[outUnits]).toFixed(4);
 
 		document.getElementById('outputDistance').value = result;
 	}

@@ -38,7 +38,7 @@ quote_Btn.addEventListener('click', displayQuote);
 
 function displayQuote() {
     //create random number
-    let number = Math.floor(Math.random()*quotes.length);
+    let number = Math.floor(Math.random() * quotes.length);
     quote_author.innerHTML = quotes[number].name;
     quote.innerHTML = quotes[number].quote;    
 }

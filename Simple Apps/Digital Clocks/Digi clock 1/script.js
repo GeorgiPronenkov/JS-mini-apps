@@ -39,7 +39,7 @@ function checkTime(time) {
 
 function addZero(time) {
 
-    if (time <= 10) {
+    if (time < 10) {
         time = "0" + time;
     }
 

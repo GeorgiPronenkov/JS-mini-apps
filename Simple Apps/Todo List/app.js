@@ -1,5 +1,5 @@
 //retrieve data from local storage
-function get_todos(){
+function get_todos() {
     let todos = [];
     let todos_str = localStorage.getItem('todo');
     if(todos_str !== null){
@@ -37,11 +37,11 @@ function remove(){
     return false; //avoids further action with click event
 }
 
-function show(){
+function show() {
     let todos = get_todos();
     let html = '<ul>';
 
-    for(let i = 0; i < todos.length; i++){
+    for(let i = 0; i < todos.length; i++) {
         html += '<li>' + todos[i] + 
                 '<button class="remove" id="' + i + 
                 '">Delete</button> </li>';
@@ -50,7 +50,7 @@ function show(){
     document.getElementById('todos').innerHTML = html;
 
     let buttons = document.getElementsByClassName('remove');
-    for(let i=0; i < buttons.length; i++){
+    for(let i=0; i < buttons.length; i++) {
         buttons[i].addEventListener('click', remove);
     }
 }
