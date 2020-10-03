@@ -10,21 +10,6 @@ function validate() {
 	let validationDiv = $('#valid');
 	let allIsValid = true;
 
-	//validate form
-	function validateForm() {
-		validateInput(username, /^[A-Za-z\d]{3,20}$/g);
-		validateInput(email, /^.*?@.*?\..*$/g);
-		if (confirmPassword.val() === password.val()) {
-			validateInput(password, /^\w{5,15}$/g);
-			validateInput(confirmPassword, /^\w{5,15}$/g);
-		} else {
-		    confirmPassword.css('border', 'solid red');
-			password.css('border', 'solid red');
-			window.alert('Password did not match required pattern!')
-			allIsValid = false;
-		}
-	}
-
 	//regEx
 	function validateInput(input, pattern) {
 		if (pattern.test(input.val())) {
@@ -33,6 +18,21 @@ function validate() {
 			input.css('border', 'solid red');
 			window.alert('Please, fill the form correctly!')
 		    allIsValid = false;
+		}
+	}
+
+	//validate form
+	function validateForm() {
+		validateInput(username, /^[A-Za-z\d]{3,20}$/g);
+		validateInput(email, /^.*?@.*?\..*$/g);
+		if (confirmPassword.val() === password.val()) {
+			validateInput(password, /^\w{5,15}$/g);
+			validateInput(confirmPassword, /^\w{5,15}$/g);
+		} else {
+			confirmPassword.css('border', 'solid red');
+			password.css('border', 'solid red');
+			window.alert('Password did not match required pattern!')
+			allIsValid = false;
 		}
 	}
 
